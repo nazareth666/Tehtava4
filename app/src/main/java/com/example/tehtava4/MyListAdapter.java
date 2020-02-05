@@ -42,7 +42,7 @@ public class MyListAdapter extends ArrayAdapter<luokka>{
 
 
             v = layoutInflater.inflate(R.layout.list_layout,parent,false);
-            //LinearLayout linearLayout = (LinearLayout) v;
+
 
             TextView lista = v.findViewById(R.id.title);
             TextView lista2 = v.findViewById(R.id.body);

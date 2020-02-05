@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 JsonArrayRequest request = new JsonArrayRequest(ENDPOINT, new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        //luokka luokka;
+
 
                         Type listantyyppi = new TypeToken<ArrayList<luokka>>() {
                         }.getType();
