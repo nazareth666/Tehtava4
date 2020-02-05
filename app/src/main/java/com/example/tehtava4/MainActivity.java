@@ -23,9 +23,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String ENDPOINT = "https://jsonplaceholder.typicode.com/posts";
     private RequestQueue que;
     private Button button;
-    private static final String ENDPOINT = "https://jsonplaceholder.typicode.com/posts";
     private MyListAdapter Adapteri;
     private ListView lista;
     
