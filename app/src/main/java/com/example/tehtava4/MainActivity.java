@@ -2,11 +2,8 @@ package com.example.tehtava4;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.DownloadManager;
-import android.app.DownloadManager.Request;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -30,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
     private Button button;
     private static final String ENDPOINT = "https://jsonplaceholder.typicode.com/posts";
     private MyListAdapter Adapteri;
-    private List<luokka> luokka;
     private ListView lista;
+    
 
 
     @Override
@@ -43,10 +40,10 @@ public class MainActivity extends AppCompatActivity {
         this.que = Volley.newRequestQueue(this);
         this.lista = findViewById(R.id.lista);
 
-        luokka = new ArrayList<>();
+        List<TitleBody> listaa = new ArrayList<>();
 
-        Adapteri = new MyListAdapter(this,R.layout.list_layout, luokka);
-
+        Adapteri = new MyListAdapter(this,R.layout.list_layout, listaa);
+        lista.setAdapter(Adapteri);
 
         this.button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,13 +53,12 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(JSONArray response) {
 
 
-                        Type listantyyppi = new TypeToken<ArrayList<luokka>>() {
+                        Type listantyyppi = new TypeToken<ArrayList<TitleBody>>() {
                         }.getType();
                         Gson gson = new Gson();
 
 
-                        ArrayList<luokka> lista = gson.fromJson(response.toString(), listantyyppi);
-
+                        ArrayList<TitleBody> lista = gson.fromJson(response.toString(), listantyyppi);
                         Adapteri.addAll(lista);
                     }
 
@@ -76,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
                 });
 
                 que.add(request);
-                button.setVisibility(View.GONE);
 
             }
 
